@@ -1,0 +1,9 @@
+*.pyc
+*\.sw[a-z]
+*.egg-info/
+build/
+dist/
+setuptools-*
+venv/
+.pypirc
+*.pem
