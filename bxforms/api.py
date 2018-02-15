@@ -8,6 +8,7 @@ from common.response import error_response
 from common.response import maltego_response
 from common.const import MALTEGO_PHRASE
 from bxforms.common.utilities import safe_symbols
+from bxforms import load_maltego
 
 app = Flask(__name__)
 
@@ -34,7 +35,8 @@ def post_indicators(kwargs):
     return loaded
 
 
-@app.route('/add_indicator')
+@app.route('/add_indicator', method="ANY")
+@load_maltego(debug=False)
 def add_indicator(trx, context):
     """Add an indicator to a cloud node."""
     username = context.getTransformSetting('username')
